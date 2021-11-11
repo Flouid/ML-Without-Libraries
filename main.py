@@ -66,9 +66,9 @@ def weight_update(network, activations, prediction, label):
     for layer_idx in reversed(range(len(network))):
         # perform a weight update for every node in the layer
         for node_idx in range(len(network[layer_idx])):
-            # the activations data structure is one layer deeper the network data structure, adjust here
+            # the activations data structure is one layer deeper than the network data structure, adjust here
             y = activations[layer_idx + 1][node_idx]
-            # formula for the partial derivative of y = 2/(1 + e^-z) - 1
+            # formula for the partial derivative of "y = 2/(1 + e^-z) - 1" in terms of itself
             node_delta = (prediction - label)*0.5*(y + 1)*(1 - y)
             # perform an update on every weight coming into the node
             for weight_idx in range(len(network[layer_idx][node_idx])):
