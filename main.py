@@ -38,6 +38,7 @@ def init():
 # ========
 
 
+# trains the network for a given number of epochs to improve classifier accuracy
 def train(network, data, labels, epochs):
     for epoch in range(epochs):
         print(f'EPOCH {epoch+1}', end=' ')
@@ -81,6 +82,7 @@ def weight_update(network, activations, prediction, label):
 # ==========
 
 
+# takes a set of labels and a corresponding set of predictions and returns the accuracy of the predictions
 def calculate_accuracy(labels, predictions):
     correct = 0
     length = len(labels)
@@ -90,7 +92,7 @@ def calculate_accuracy(labels, predictions):
     return correct / length
 
 
-# runs the neural network on an input data set and returns the accuracy of the classifier
+# runs the neural network on an input data set and returns a set of predictions
 def generate_predictions(network, data):
     predictions = []
     # for each point, the prediction will be the result of tensor flow on the network and point

@@ -1,9 +1,6 @@
 import numpy as np
 
 
-SIGMOID_BOUND = 300
-
-
 # altered sigmoid activation function, range is (-1, 1)
 def sigmoid(z):
     return 2/(1 + np.exp(-z)) - 1
